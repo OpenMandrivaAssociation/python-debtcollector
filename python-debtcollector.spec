@@ -7,6 +7,7 @@ URL:		https://pypi.org/project/debtcollector/
 License:	GPL
 Group:		Development/Python
 BuildRequires:	python
+BuildRequires:	python%{pyver}dist(pbr)
 BuildSystem:	python
 BuildArch:	noarch
 
