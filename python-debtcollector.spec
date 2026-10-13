@@ -2,14 +2,15 @@
 
 Name:		python-debtcollector
 Version:	3.1.0
-Release:	1
+Release:	2
 Summary:	A collection of Python deprecation patterns and strategies
 License:	Apache-2.0
 Group:		Development/Python
 URL:		https://pypi.org/project/debtcollector/
 Source0:	https://files.pythonhosted.org/packages/source/d/debtcollector/debtcollector-%{version}.tar.gz#/%{name}-%{version}.tar.gz
 
-BuildRequires:	python
+BuildRequires:	pkgconfig(python3)
+BuildRequires:	python%{pyver}dist(setuptools)
 BuildRequires:	python%{pyver}dist(pbr)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(wheel)
@@ -28,6 +29,9 @@ The desired output of these patterns is to apply the warnings module to
 emit DeprecationWarning, PendingDeprecationWarning or similar derivative
 to developers using libraries (or potentially applications) about future
 deprecations.
+
+%build -p
+export PBR_VERSION="%{version}"
 
 %prep -a
 # Remove bundled egg-info
